@@ -71,7 +71,7 @@ For when you want the substance to survive a non-clickthrough reader.
 > (Humans Out Of The Loop). Auditability, Verdict Pipeline, Override
 > Channel, Reversibility, and four more.
 > Framework: hootl.org
-> Why it matters: [launch piece URL]
+> Why it matters: hootl.org/essays/the-operator-side-gap
 
 **Why this works:**
 - Tweet 1 establishes what the Blueprint actually IS (vs. what it

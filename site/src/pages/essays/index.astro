@@ -1,0 +1,124 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const essays = [
+  {
+    href: '/essays/the-operator-side-gap/',
+    title: 'What the OpenAI Frontier Safety Blueprint Leaves Out',
+    subtitle:
+      'The lab-side safety story is necessary but not sufficient. Here\'s the operator-side layer it doesn\'t address — and why a perfectly evaluated model in a poorly-designed runtime is still unsafe.',
+    pubDateDisplay: 'June 2026',
+    pubDateSort: '2026-06-04',
+  },
+];
+
+const sorted = [...essays].sort((a, b) =>
+  b.pubDateSort.localeCompare(a.pubDateSort)
+);
+---
+
+<Base
+  title="Essays"
+  description="Essays on AI safety substrate properties, the operator-side governance layer, and the HOOTL framework's intellectual lineage."
+>
+  <section class="section">
+    <div class="prose">
+      <h1>Essays</h1>
+      <p style="color: var(--ink-muted); font-style: italic;">
+        Commentary on the AI safety policy landscape, where HOOTL fits
+        in it, and the operator-side substrate-property arguments that
+        the framework rests on. Each essay is independently cite-able;
+        all are published under <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >CC-BY 4.0</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="container">
+      <div class="essay-list">
+        {sorted.map((essay) => (
+          <article class="essay-entry">
+            <p class="essay-entry__meta">{essay.pubDateDisplay}</p>
+            <h2 class="essay-entry__title">
+              <a href={essay.href}>{essay.title}</a>
+            </h2>
+            <p class="essay-entry__subtitle">{essay.subtitle}</p>
+            <p style="margin-top: var(--space-3);">
+              <a href={essay.href} class="cta cta--ghost" style="font-size: 0.85rem; padding: 0.5em 1em;">
+                Read →
+              </a>
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container" style="text-align: center;">
+      <p style="color: var(--cream); max-width: 60ch; margin: 0 auto var(--space-6) auto;">
+        The framework these essays defend is at <a
+          href="/"
+          style="color: var(--mid-teal); text-decoration: underline;"
+        >hootl.org</a> — eight numbered substrate-property principles for
+        autonomous-agent systems running in HOOTL posture.
+      </p>
+      <div class="cta-row" style="justify-content: center;">
+        <a href="/#principles" class="cta cta--amber">The eight principles →</a>
+        <a href="/" class="cta cta--ghost">Back to landing</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .essay-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    max-width: var(--max-w-prose);
+    margin: 0 auto;
+  }
+
+  .essay-entry__meta {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin: 0 0 var(--space-2) 0;
+  }
+
+  .essay-entry__title {
+    font-family: var(--font-head);
+    color: var(--deep-teal);
+    font-size: clamp(1.4rem, 2vw + 0.8rem, 1.85rem);
+    line-height: 1.25;
+    margin: 0 0 var(--space-3) 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .essay-entry__title a {
+    color: var(--deep-teal);
+    text-decoration: none;
+  }
+
+  .essay-entry__title a:hover {
+    color: var(--teal);
+    text-decoration: underline;
+  }
+
+  .essay-entry__subtitle {
+    font-family: var(--font-head);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>

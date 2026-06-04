@@ -1,0 +1,128 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+    subtitle?: string;
+    author?: string;
+    pubDate?: string;
+    pubDateDisplay?: string;
+    canonicalNote?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+const {
+  title,
+  description,
+  subtitle,
+  author = 'Travis Winegar',
+  pubDateDisplay,
+} = frontmatter;
+---
+
+<Base title={title} description={description}>
+  <article class="essay">
+    <header class="essay__header">
+      <div class="container essay__header-inner">
+        <p class="essay__eyebrow">
+          <a href="/essays/">Essays</a>
+        </p>
+        <h1 class="essay__title">{title}</h1>
+        {subtitle && <p class="essay__subtitle">{subtitle}</p>}
+        <p class="essay__meta">
+          {author} · {pubDateDisplay}
+        </p>
+      </div>
+    </header>
+
+    <div class="essay__body">
+      <div class="prose">
+        <slot />
+      </div>
+    </div>
+
+    <footer class="essay__footer section section--dark">
+      <div class="container" style="text-align: center;">
+        <p style="color: var(--cream); max-width: 60ch; margin: 0 auto var(--space-6) auto;">
+          The framework these essays defend is at <a
+            href="/"
+            style="color: var(--mid-teal); text-decoration: underline;"
+          >hootl.org</a> — eight numbered substrate-property principles for
+          autonomous-agent systems running in HOOTL posture.
+        </p>
+        <div class="cta-row" style="justify-content: center;">
+          <a href="/#principles" class="cta cta--amber">The eight principles →</a>
+          <a href="/essays/" class="cta cta--ghost">More essays</a>
+        </div>
+      </div>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .essay__header {
+    background: var(--cream-shade);
+    padding: var(--space-16) 0 var(--space-12) 0;
+    border-bottom: 1px solid var(--cream-shade);
+  }
+
+  .essay__header-inner {
+    max-width: var(--max-w-prose);
+  }
+
+  .essay__eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-deep);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .essay__eyebrow a {
+    color: var(--amber-deep);
+    text-decoration: none;
+  }
+
+  .essay__eyebrow a:hover {
+    color: var(--deep-teal);
+  }
+
+  .essay__title {
+    font-family: var(--font-head);
+    color: var(--deep-teal);
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.75rem);
+    line-height: 1.2;
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  .essay__subtitle {
+    font-family: var(--font-head);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0 0 var(--space-6) 0;
+  }
+
+  .essay__meta {
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .essay__body {
+    padding: var(--space-12) 0 var(--space-16) 0;
+  }
+
+  .essay__body .prose h2 {
+    margin-top: 2.5em;
+  }
+
+  .essay__body .prose h2:first-of-type {
+    margin-top: 1em;
+  }
+</style>

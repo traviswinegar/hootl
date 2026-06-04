@@ -80,7 +80,7 @@ into research ethics rules.
 I'd value your read on whether the operator-side framing is what's
 been missing from the policy conversation, and whether HOOTL's
 specific principles are the right ones. The standalone piece is at
-[link]. Happy to send the full PRINCIPLES.md if you'd like the
+[hootl.org/essays/the-operator-side-gap](https://hootl.org/essays/the-operator-side-gap/). Happy to send the full PRINCIPLES.md if you'd like the
 extended version.
 
 Travis Winegar
@@ -116,7 +116,7 @@ Two specific asks: (1) is this a real gap in the comparative
 regulatory work, or has someone covered it I haven't found? (2) if
 GovAI is considering operator-side framing in current research,
 HOOTL is offered as a citable starting vocabulary. The launch piece
-is at [link].
+is at [hootl.org/essays/the-operator-side-gap](https://hootl.org/essays/the-operator-side-gap/).
 
 Travis Winegar
 travis@momusdev.com · hootl.org
@@ -148,7 +148,7 @@ needs to be for that not to be true.
 
 I'd value your read on whether this is the right shape for the
 deployment-stage question, or whether you think the problem
-decomposes differently. Standalone piece is at [link]. The PRINCIPLES
+decomposes differently. Standalone piece is at [hootl.org/essays/the-operator-side-gap](https://hootl.org/essays/the-operator-side-gap/). The PRINCIPLES
 markdown is on the repo at github.com/traviswinegar/hootl.
 
 Travis Winegar
@@ -186,7 +186,7 @@ codifiable.
 I'm not affiliated with any UK institution; I'm an independent
 operator (Flutter desktop AI IDE called AI Studio, which is the
 reference implementation). The standalone framing piece is at
-[link]. If there's interest in talking, happy to follow up.
+[hootl.org/essays/the-operator-side-gap](https://hootl.org/essays/the-operator-side-gap/). If there's interest in talking, happy to follow up.
 
 Travis Winegar
 travis@momusdev.com · hootl.org
@@ -219,7 +219,7 @@ models are deployed in autonomous-agent runtimes.
 I've published the operator-side companion today at
 [hootl.org](https://hootl.org) — eight numbered substrate-property
 principles for autonomous-agent systems running in HOOTL posture
-(Humans Out Of The Loop). The standalone piece is at [link]. If
+(Humans Out Of The Loop). The standalone piece is at [hootl.org/essays/the-operator-side-gap](https://hootl.org/essays/the-operator-side-gap/). If
 there's a "what the Blueprint leaves out" angle in your queue, I'm
 the source for it. Quotable, on the record, happy to elaborate on
 any of the eight principles.
@@ -257,7 +257,7 @@ jurisdiction-neutral. The principles are designed exactly for the
 If your team is drafting language for autonomous-agent deployments in
 healthcare, finance, critical infrastructure, or federal procurement,
 the eight principles are offered as a starting vocabulary. The
-standalone piece is at [link]. Happy to brief if useful.
+standalone piece is at [hootl.org/essays/the-operator-side-gap](https://hootl.org/essays/the-operator-side-gap/). Happy to brief if useful.
 
 Travis Winegar
 travis@momusdev.com · hootl.org

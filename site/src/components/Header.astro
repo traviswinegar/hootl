@@ -4,8 +4,9 @@ const { pathname } = Astro.url;
 const navLinks = [
   { href: '/#frame', label: 'The frame' },
   { href: '/#principles', label: 'Eight principles' },
-  { href: '/#cite', label: 'Cite' },
   { href: '/principles/', label: 'Full text' },
+  { href: '/essays/', label: 'Essays' },
+  { href: '/#cite', label: 'Cite' },
 ];
 
 const current = (href: string) =>
