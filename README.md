@@ -65,4 +65,4 @@ property.
 
 ## Contact
 
-travis@hootl.org · [GitHub issues](https://github.com/traviswinegar/hootl/issues)
+travis@momusdev.com · [GitHub issues](https://github.com/traviswinegar/hootl/issues)

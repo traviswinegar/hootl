@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 
 interface Props {
   title: string;
@@ -43,11 +44,33 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="twitter:description" content={description} />
 
     <title>{fullTitle}</title>
+
+    <!-- Google Consent Mode v2 — deny tracking until the visitor opts in
+         (banner in ConsentBanner.astro). Must run before gtag config. -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
+      try {
+        if (localStorage.getItem('ga-consent') === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+      } catch (e) {}
+      gtag('js', new Date());
+      gtag('config', 'G-ZLH07V16C8');
+    </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-ZLH07V16C8"></script>
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>
     <Header />
     <main id="main"><slot /></main>
     <Footer />
+    <ConsentBanner />
   </body>
 </html>

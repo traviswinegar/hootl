@@ -219,4 +219,4 @@ public document. A serious AI safety policy framework needs both.
 *Travis Winegar publishes the HOOTL Safety Principles at
 [hootl.org](https://hootl.org) and ships AI Studio, a substrate-first
 agentic IDE that is the reference implementation. Contact at
-travis@hootl.org or [@traviswinegar](https://twitter.com/) on X.*
+travis@momusdev.com or [@traviswinegar](https://twitter.com/) on X.*

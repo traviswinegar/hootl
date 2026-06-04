@@ -46,7 +46,7 @@ Happy to send the standalone write-up
 through how the eight principles map onto your existing categories.
 
 Travis Winegar
-travis@hootl.org · hootl.org
+travis@momusdev.com · hootl.org
 
 ---
 
@@ -84,7 +84,7 @@ specific principles are the right ones. The standalone piece is at
 extended version.
 
 Travis Winegar
-travis@hootl.org · hootl.org
+travis@momusdev.com · hootl.org
 
 ---
 
@@ -119,7 +119,7 @@ HOOTL is offered as a citable starting vocabulary. The launch piece
 is at [link].
 
 Travis Winegar
-travis@hootl.org · hootl.org
+travis@momusdev.com · hootl.org
 
 ---
 
@@ -152,7 +152,7 @@ decomposes differently. Standalone piece is at [link]. The PRINCIPLES
 markdown is on the repo at github.com/traviswinegar/hootl.
 
 Travis Winegar
-travis@hootl.org · hootl.org
+travis@momusdev.com · hootl.org
 
 ---
 
@@ -189,7 +189,7 @@ reference implementation). The standalone framing piece is at
 [link]. If there's interest in talking, happy to follow up.
 
 Travis Winegar
-travis@hootl.org · hootl.org
+travis@momusdev.com · hootl.org
 
 ---
 
@@ -226,7 +226,7 @@ any of the eight principles.
 
 Travis Winegar
 Independent operator · ships AI Studio (substrate-first agentic IDE)
-travis@hootl.org · hootl.org
+travis@momusdev.com · hootl.org
 
 ---
 
@@ -260,7 +260,7 @@ the eight principles are offered as a starting vocabulary. The
 standalone piece is at [link]. Happy to brief if useful.
 
 Travis Winegar
-travis@hootl.org · hootl.org
+travis@momusdev.com · hootl.org
 
 ---
 
