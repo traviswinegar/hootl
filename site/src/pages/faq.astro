@@ -1,0 +1,233 @@
+---
+import Base from '../layouts/Base.astro';
+
+const faqs = [
+  {
+    q: 'Is this anti-OpenAI?',
+    a: `No. The OpenAI Frontier Safety Blueprint is a serious document; the
+    Preparedness Framework and Frontier Governance Framework do
+    real work. HOOTL is <strong>complementary</strong> — it
+    addresses the operator-side layer that lab-side frameworks
+    structurally cannot. A serious AI safety policy framework
+    needs both. The launch essay
+    (<a href="/essays/the-operator-side-gap/">"What the OpenAI
+    Frontier Safety Blueprint Leaves Out"</a>) makes the case
+    explicitly.`,
+  },
+  {
+    q: 'How does this relate to the NIST AI Risk Management Framework?',
+    a: `NIST AI RMF is one of the foundational vocabularies HOOTL
+    draws from. The bibliography of the
+    <a href="/principles/">Principles</a> cites NIST AI RMF, OECD
+    AI Principles, the EU AI Act, and the Belmont Report as the
+    tradition HOOTL stands in. NIST AI RMF is broader (covering
+    governance and management functions across all AI systems);
+    HOOTL is narrower and more specific (eight numbered
+    substrate-property primitives for HOOTL-posture systems
+    specifically). The two are designed to compose.`,
+  },
+  {
+    q: 'How does HOOTL relate to the EU AI Act?',
+    a: `The EU AI Act addresses many operator obligations in regulated
+    sectors, but lacks codified vocabulary for the substrate
+    properties of an autonomous-agent runtime as a system. HOOTL is
+    designed to plug into that gap. The principles are
+    jurisdiction-neutral by construction — they describe technical
+    and operational characteristics that hold across strict-liability,
+    negligence-based, operator-responsibility, and hybrid regimes.`,
+  },
+  {
+    q: 'Can I cite or adapt the principles in my own work?',
+    a: `Yes, without permission. The spec is licensed
+    <a
+      href="https://creativecommons.org/licenses/by/4.0/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >CC-BY 4.0</a> — attribution required, commercial use permitted,
+    adaptation permitted. Cite "Winegar, T. (2026). <em>Principles
+    of HOOTL Safety</em> (v1.0). hootl.org." In-text citation pattern
+    is <code>"per HOOTL-3 (Override Channel)"</code>.`,
+  },
+  {
+    q: 'Can I profile HOOTL for my sector?',
+    a: `Yes — this is one of the explicit intended uses. Healthcare,
+    finance, critical infrastructure, defense, government,
+    transportation, and energy all have specific operator-side
+    requirements that the eight principles are shaped to
+    accommodate. A sector profile would typically map each principle
+    onto sector-specific failure modes, name the artifacts the
+    sector already produces that satisfy or fail to satisfy each
+    principle, and add sector-specific guardrails. We're actively
+    interested in collaborating on such profiles —
+    <a href="mailto:travis@momusdev.com">email if you're working on
+    one</a>.`,
+  },
+  {
+    q: 'Why a new framework when there are already so many?',
+    a: `The existing frontier-safety frameworks (OpenAI Preparedness,
+    Anthropic RSP, Google DeepMind FSF) are all lab-side. METR's
+    "Common Elements" survey across twelve frameworks confirms this
+    — nine recurring elements across all of them, all lab-side.
+    Operator-side substrate properties are not absent because
+    they're unimportant; they're absent because the existing
+    frameworks are structurally positioned to address model
+    release, not runtime deployment. HOOTL fills the layer that
+    isn't otherwise served.`,
+  },
+  {
+    q: 'Is HOOTL a standard, a specification, or a regulation?',
+    a: `None of those. HOOTL is a <strong>concepts document</strong> —
+    a stable, citable vocabulary of substrate properties that
+    policy authors, vendors, auditors, and operators can use in
+    their own work. The principles are properties of safe systems;
+    jurisdictions remain free to wrap them with whatever liability
+    framework is appropriate to local doctrine. This is the same
+    shape the Belmont Report (1979) took for research ethics — a
+    set of principles that became citable load-bearing language in
+    other parties' rules.`,
+  },
+  {
+    q: 'What does "operator-side" mean exactly?',
+    a: `The <strong>lab</strong> is the party that trains and releases
+    a frontier model. The <strong>operator</strong> is the party
+    that deploys a model in a system that runs autonomously. The
+    two are usually different parties. The lab's safety
+    responsibility ends at release. The operator's begins there.
+    HOOTL describes what the operator-side runtime needs to be for
+    autonomous deployment to be accountable, regardless of which
+    lab released the underlying model.`,
+  },
+  {
+    q: 'How does HOOTL relate to AgentDNA and AgenticMD?',
+    a: `They're three frameworks I've been developing this year that
+    share a single thesis (<em>substrate is truth</em>) at three
+    different layers. <a
+      href="https://agenticmd.org"
+      target="_blank"
+      rel="noopener noreferrer"
+    >AgenticMD</a> is markup discipline for agent-consumed
+    documentation. AgentDNA is a substrate-first agent operating
+    framework. HOOTL is substrate-property safety principles for
+    autonomous-agent systems. AI Studio (my Flutter desktop AI IDE)
+    is the reference implementation of all three. See
+    <a href="/about/">About</a> for the framework family lineage.`,
+  },
+  {
+    q: 'I think HOOTL-X is wrong, missing, or should be reworded.',
+    a: `Open an issue at
+    <a
+      href="https://github.com/traviswinegar/hootl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >github.com/traviswinegar/hootl</a> or email
+    <a href="mailto:travis@momusdev.com">travis@momusdev.com</a>.
+    The framework is versioned (currently v1.0); subsequent versions
+    can add, refine, or rephrase principles. The numbering scheme is
+    explicitly stable across versions, so citations don't break when
+    prose evolves.`,
+  },
+  {
+    q: 'How do I propose a HOOTL-9?',
+    a: `Same as above — open an issue with the proposed property, the
+    failure mode it addresses, and a brief argument for why it
+    isn't already covered by the existing eight. Substrate-property
+    additions are the kind of contribution most likely to land in
+    v1.1 or v2.0.`,
+  },
+  {
+    q: 'Is there a reference implementation I can study?',
+    a: `<a
+      href="https://github.com/Milsoft-R-D/ai-studio"
+      target="_blank"
+      rel="noopener noreferrer"
+    >AI Studio</a> is the reference implementation that the framework
+    was extracted from. The substrate (graph DB, ADR cluster,
+    behavioral tests, audit harness, council reviewer, mutator) all
+    pre-existed the framework — the framework names the substrate
+    properties that those concrete systems exhibit. The substrate is
+    open for study; the framework is the abstraction.`,
+  },
+];
+---
+
+<Base
+  title="FAQ"
+  description="Frequently asked questions about the HOOTL Safety Principles — relationship to other frameworks, licensing, sector profiling, and contribution."
+>
+  <section class="section">
+    <div class="prose">
+      <h1>Frequently asked questions</h1>
+      <p style="color: var(--ink-muted); font-style: italic;">
+        Common questions about HOOTL — its relationship to other
+        frameworks, licensing, sector adoption, and how to contribute.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="prose">
+      {faqs.map((faq) => (
+        <div class="faq-item">
+          <h2 class="faq-question">{faq.q}</h2>
+          <div class="faq-answer" set:html={faq.a} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container" style="text-align: center;">
+      <p style="color: var(--cream); max-width: 60ch; margin: 0 auto var(--space-6) auto;">
+        Question not answered here?
+        <a
+          href="mailto:travis@momusdev.com"
+          style="color: var(--mid-teal); text-decoration: underline;"
+        >Email it</a>, or open an issue on
+        <a
+          href="https://github.com/traviswinegar/hootl"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: var(--mid-teal); text-decoration: underline;"
+        >GitHub</a>. Common ones land here.
+      </p>
+      <div class="cta-row" style="justify-content: center;">
+        <a href="/#principles" class="cta cta--amber">The eight principles →</a>
+        <a href="/" class="cta cta--ghost">Back to landing</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .faq-item {
+    margin-bottom: var(--space-12);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--cream-shade);
+  }
+
+  .faq-item:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .faq-question {
+    font-family: var(--font-head);
+    color: var(--deep-teal);
+    font-size: 1.3rem;
+    line-height: 1.3;
+    margin: 0 0 var(--space-4) 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .faq-answer {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  .faq-answer p {
+    margin: 0;
+  }
+</style>

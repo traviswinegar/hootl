@@ -1,0 +1,168 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="About"
+  description="How the HOOTL Safety Principles came to be, who wrote them, and how they fit into the broader framework family."
+>
+  <section class="section">
+    <div class="prose">
+      <h1>About HOOTL</h1>
+      <p style="color: var(--ink-muted); font-style: italic;">
+        How the framework came to be, who wrote it, and where it fits
+        in the broader landscape.
+      </p>
+
+      <h2>The framework</h2>
+      <p>
+        HOOTL — <em>Humans Out Of The Loop</em> — names a posture in
+        which autonomous AI agents operate without per-action human
+        approval. The eight numbered principles at <a href="/">hootl.org</a>
+        describe the substrate properties any system running in HOOTL
+        posture should exhibit, regardless of which lab's model is
+        inside it.
+      </p>
+      <p>
+        The principles are <strong>operator-side</strong>. They
+        complement, rather than duplicate, the lab-side safety
+        frameworks published by OpenAI, Anthropic, and Google DeepMind.
+        Those describe what a frontier lab should do when training and
+        releasing a capable model. HOOTL describes what the runtime
+        wrapping a deployed model needs to be for that model's
+        autonomous use to be accountable.
+      </p>
+      <p>
+        The principles are versioned at v1.0 as of June 2026. The
+        numbering scheme (<code>HOOTL-1</code> through
+        <code>HOOTL-8</code>) is stable across versions to preserve
+        citation through prose revisions.
+      </p>
+
+      <h2>Where it came from</h2>
+      <p>
+        HOOTL was extracted from a working product, not designed in
+        the abstract. The reference implementation is
+        <strong>AI Studio</strong>, a Flutter Windows desktop
+        AI coding IDE I have spent the past year shipping. AI Studio's
+        architecture pre-existed any explicit safety framing: typed
+        knowledge-graph nodes, immutable architecture decision records
+        (ADRs), behavioral tests, a chat ledger, an audit harness, a
+        council of typed-agent reviewers, a mutation-testing engine.
+        Each was a product decision made for product reasons — to make
+        a long-running agent useful to a developer across multi-week
+        arcs.
+      </p>
+      <p>
+        What I noticed, the longer I worked with it, was that the
+        substrate that made the product useful for users turned out to
+        also make the agents themselves accountable. Every action the
+        runtime took left a forensic trail. Every claim was tested by
+        a process the authoring agent could not influence. Every
+        irreversible operation was named in advance. The substrate
+        <em>was</em> the safety story, even though it had not been
+        designed as one.
+      </p>
+      <p>
+        That observation generalizes. The eight principles are the
+        properties that made AI Studio's autonomous runtime
+        accountable in practice. They are offered here at one level of
+        abstraction up — as substrate-property primitives any
+        autonomous-agent system can adopt, profile, and extend.
+      </p>
+
+      <h2>The framework family</h2>
+      <p>
+        HOOTL is the third in a family of frameworks I've been
+        developing this year:
+      </p>
+      <ul>
+        <li>
+          <strong><a
+            href="https://agenticmd.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >AgenticMD</a></strong> — a markup discipline for markdown
+          documents intended to be consumed by software agents. Solves
+          the retrieval problem (cross-section anaphora) at the
+          documentation layer.
+        </li>
+        <li>
+          <strong>AgentDNA</strong> — substrate-first agent operating
+          framework. Solves the continuity problem (compaction,
+          handoff, recovery) at the agent layer. Reference
+          implementation: AI Studio.
+        </li>
+        <li>
+          <strong>HOOTL</strong> — substrate-property safety principles
+          for autonomous-agent systems. Solves the accountability
+          problem at the operator layer. This site.
+        </li>
+      </ul>
+      <p>
+        The three frameworks share a single thesis: <strong>substrate
+        is truth</strong>. The conversation, the model, the
+        per-turn output are the working surface. The substrate — the
+        graph, the ADRs, the tests, the artifacts — is what persists,
+        what gets cited, and what holds the system accountable. Each
+        framework operationalizes that thesis at a different layer.
+      </p>
+
+      <h2>Who I am</h2>
+      <p>
+        Travis Winegar. Independent developer; principal at Momus Dev.
+        I ship <strong>AI Studio</strong> — the Flutter desktop AI
+        IDE that is HOOTL's reference implementation — and write the
+        framework documents that emerged from that work. Reachable at
+        <a href="mailto:travis@momusdev.com">travis@momusdev.com</a>.
+      </p>
+      <p>
+        I'm not affiliated with any frontier lab, policy institution,
+        or regulator. HOOTL is published independently and licensed
+        CC-BY 4.0 so that policy authors, vendors, auditors, operators,
+        and researchers can cite, adapt, or extend it without
+        permission.
+      </p>
+
+      <h2>Why this matters now</h2>
+      <p>
+        The frontier-AI safety conversation in 2026 is being written
+        in real time. OpenAI's <a
+          href="https://openai.com/index/frontier-safety-blueprint/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Frontier Safety Blueprint</a> (June 3, 2026) proposes a
+        US federal framework anchored on CAISI as the statutory
+        primary authority for frontier AI safety. California SB 53,
+        New York's RAISE Act, and Illinois's SB 315 are already on the
+        books. The EU AI Act is operational. UK AISI exists.
+      </p>
+      <p>
+        All of these frameworks share a structural assumption: that
+        the lab evaluating and releasing the model is where the safety
+        story mostly terminates. That assumption breaks down once
+        frontier models are deployed in autonomous-agent runtimes.
+        Policy bills under drafting today need <strong>operator-side
+        substrate-property vocabulary</strong> they currently lack.
+        HOOTL is offered as that vocabulary.
+      </p>
+      <p>
+        The framework is the starting point. The work it makes
+        possible — sector-specific profiles, citation in bill language,
+        adoption by operators, falsification by adversarial review —
+        is what comes next.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container" style="text-align: center;">
+      <h2 style="color: var(--cream);">Get started</h2>
+      <div class="cta-row" style="justify-content: center;">
+        <a href="/#principles" class="cta cta--amber">The eight principles →</a>
+        <a href="/essays/the-operator-side-gap/" class="cta cta--ghost">Read the launch essay</a>
+        <a href="/principles/" class="cta cta--ghost">Full text</a>
+      </div>
+    </div>
+  </section>
+</Base>
