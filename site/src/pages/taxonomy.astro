@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="The HITL · HOTL · HOOTL Taxonomy"
+  description="Three postures for human involvement in AI-driven autonomous systems. What each requires from the substrate underneath, and what each implies legally, ethically, and commercially."
+>
+  <section class="section">
+    <div class="prose">
+      <h1>HITL · HOTL · HOOTL</h1>
+      <p style="color: var(--ink-muted); font-style: italic;">
+        Three substantively different bets about where the human sits
+        relative to an AI system producing work autonomously.
+      </p>
+      <p>
+        The acronyms have to do a lot of work in the next few years.
+        Pricing, regulation, accountability, error handling, and
+        market positioning all change as you move along the
+        progression. The bets are not interchangeable; a product
+        built for one is the wrong product for another.
+      </p>
+
+      <h2>HITL — Humans In The Loop</h2>
+      <p>
+        The human is a step in the iteration mechanism. The agent
+        proposes; the human accepts, rejects, or edits; the loop
+        advances one ratified action at a time. The human's
+        attention is the throttle.
+      </p>
+      <p>
+        Cursor, Cline, Continue, Copilot, and Claude Code are HITL
+        tools. Each is good at being good HITL. The safety story
+        terminates at "did the human approve it?" Implicit assumption
+        in most 2026 safety frameworks.
+      </p>
+
+      <h2>HOTL — Humans <em>Outside</em> The Loop</h2>
+      <p>
+        The human is the supervisor. The loop runs autonomously,
+        internalizes its own rework through council reviews, audits,
+        verdicts, and mutators, and produces artifacts the human
+        reads to verify what happened. The human sets direction,
+        ratifies at boundaries, and owns the final work product. The
+        human is the composer; the runtime is the orchestra.
+      </p>
+      <p>
+        HOTL is a real and viable category for AI coding work and
+        operational decision-making where the human cannot be the
+        per-step ratifier without becoming the bottleneck. The
+        composer framing is what makes HOTL safe: the human chooses
+        what gets played, what gets shipped, and what gets killed.
+      </p>
+
+      <h2>HOOTL — Humans <em>Out Of</em> The Loop</h2>
+      <p>
+        The human is the signal. They stop <em>stating</em> intent;
+        intent becomes a pattern the agents <em>read</em> from context
+        — chat history, codebase shape, behavior over time, adaptive
+        memory, market signal, ambient observation. The agents infer
+        need, propose work, build, measure outcomes, and adjust.
+      </p>
+      <p>
+        HOOTL is the most autonomous of the three and the most legally
+        and ethically exposed. When the human is not the iteration
+        mechanism and not the per-step ratifier, the question of
+        <em>who is accountable when something goes wrong</em> becomes
+        substantively harder.
+      </p>
+      <p>
+        Most safety frameworks in 2026 implicitly assume HITL. Under
+        HOOTL, that assumption fails. The eight HOOTL Safety
+        Principles describe what a HOOTL system needs to be to be
+        accountable.
+      </p>
+
+      <h2>The progression is also a research agenda</h2>
+      <p>
+        Each step requires capabilities the previous step did not need.
+        HITL requires nothing of the agent's substrate; the human is
+        the substrate. HOTL requires the agent to internalize rework
+        — councils, verdicts, audits. HOOTL requires the substrate to
+        infer intent reliably, to remain externally interruptible, to
+        carry provenance through emergent autonomy. None of these are
+        solved problems.
+      </p>
+
+      <p style="margin-top: var(--space-12);">
+        For the full taxonomy treatment including legal, ethical, and
+        commercial implications, see the
+        <a href="https://github.com/traviswinegar/hootl/blob/main/TAXONOMY.md" target="_blank" rel="noopener noreferrer">canonical
+        text on GitHub</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container" style="text-align: center;">
+      <div class="cta-row" style="justify-content: center;">
+        <a href="/#principles" class="cta cta--primary">The eight principles →</a>
+        <a href="/" class="cta cta--ghost">Back to landing</a>
+      </div>
+    </div>
+  </section>
+</Base>

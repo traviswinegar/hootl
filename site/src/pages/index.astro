@@ -1,0 +1,294 @@
+---
+import Base from '../layouts/Base.astro';
+
+const principles = [
+  {
+    id: 'HOOTL-1',
+    title: 'Auditability',
+    body: 'Every autonomous action must leave a forensic record sufficient for an outside auditor to reconstruct what was done, by whom, on what basis, and against what authority — without consulting the agent that did it.',
+  },
+  {
+    id: 'HOOTL-2',
+    title: 'Verdict Pipeline',
+    body: 'No autonomous action ships without a verdict produced by a process independent of the agent that authored the action. The verdict is the artifact; the chain of work is secondary.',
+  },
+  {
+    id: 'HOOTL-3',
+    title: 'Override Channel',
+    body: 'A path must exist for an authorized human to halt, redirect, or unwind an in-flight autonomous process, with effect bounded in seconds, not minutes — and not contingent on the cooperation of the agent being overridden.',
+  },
+  {
+    id: 'HOOTL-4',
+    title: 'Boundary Defense',
+    body: 'Untrusted input crossing into the agent’s reasoning context is scrubbed at one declared boundary, not at every implementation. The boundary is identifiable, testable, and load-bearing.',
+  },
+  {
+    id: 'HOOTL-5',
+    title: 'Reversibility',
+    body: 'Autonomous actions are reversible by default, or the irreversibility is named in advance and gated by an explicit authorization step. Default-irreversible operations are unsafe by construction.',
+  },
+  {
+    id: 'HOOTL-6',
+    title: 'Provenance',
+    body: 'Every artifact produced under autonomy carries a verifiable trail back to the goal, constraints, source data, model identity, and policies under which it was produced. Provenance is part of the artifact, not adjacent to it.',
+  },
+  {
+    id: 'HOOTL-7',
+    title: 'Falsifiability',
+    body: 'The system’s claims about its own correctness must be tested by mechanisms the system cannot author. Self-reports are evidence; independent falsification is proof.',
+  },
+  {
+    id: 'HOOTL-8',
+    title: 'Composer Authority',
+    body: 'The human operator who deploys an autonomous-agent system has assumed responsibility for the substrate properties of that system. Composer Authority cannot be delegated to the model vendor or to the agent itself.',
+  },
+];
+---
+
+<Base
+  title="HOOTL"
+  description="HOOTL — Humans Out Of The Loop. Eight substrate-property principles for the safe operation of autonomous AI agent systems."
+>
+  <!-- Hero ============================================================ -->
+  <section class="section section--dark" style="padding-top: 5rem; padding-bottom: 5rem;">
+    <div class="container">
+      <p class="tagline">
+        <strong>Substrate is truth.</strong> Supervision is a property of the system, not the loop.
+      </p>
+      <p class="subtagline">
+        Eight principles for the safe operation of autonomous AI agent
+        systems running in HOOTL posture — Humans Out Of The Loop.
+        Concepts document for policy authors, vendors, auditors, and
+        operators. Jurisdiction-neutral by design.
+      </p>
+      <div class="cta-row">
+        <a href="#principles" class="cta cta--primary">The eight principles →</a>
+        <a href="#frame" class="cta cta--ghost">HITL · HOTL · HOOTL</a>
+        <a href="/principles/" class="cta cta--ghost">Read the full text</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thesis ========================================================== -->
+  <section class="section section--paper">
+    <div class="prose">
+      <h2>The thesis</h2>
+      <p style="font-family: var(--font-head); font-size: 1.6rem; line-height: 1.3; color: var(--deep-teal); margin-bottom: 0.5em;">
+        Most AI safety thinking in 2026 stops at the lab.
+      </p>
+      <p>
+        Frontier-lab safety frameworks — OpenAI's Preparedness, Anthropic's
+        RSP, Google DeepMind's Frontier Safety Framework — describe
+        what a model developer should do before releasing a capable
+        model. That work is necessary. It is not sufficient.
+      </p>
+      <p>
+        A perfectly evaluated model deployed in a poorly-designed
+        autonomous-agent runtime is still unsafe. The operator who
+        wraps a model in a 24/7 autonomous agent has assumed
+        responsibility the lab cannot discharge for them. The safety
+        stack needs <em>both</em> the lab-side framework <em>and</em>
+        the operator-side substrate properties.
+      </p>
+      <p>
+        HOOTL describes the operator-side layer. Eight properties that
+        any system running autonomously, without per-action human
+        approval, should exhibit — regardless of which lab's model is
+        inside.
+      </p>
+    </div>
+  </section>
+
+  <!-- The frame: HITL / HOTL / HOOTL =================================== -->
+  <section id="frame" class="section">
+    <div class="container">
+      <h2 style="text-align: center;">Three postures for the human</h2>
+      <p style="text-align: center; color: var(--ink-muted); max-width: 60ch; margin: 0 auto var(--space-6) auto;">
+        Where the human sits relative to the iteration loop. HOOTL is
+        the most autonomous of the three — and the most exposed.
+      </p>
+      <div class="taxonomy">
+        <div class="taxonomy__cell">
+          <p class="taxonomy__label">HITL</p>
+          <p class="taxonomy__sub">Humans In The Loop</p>
+          <p class="taxonomy__body">
+            The human ratifies each action. Per-step approval. The
+            human is the iteration mechanism. Cursor, Cline, Claude
+            Code, Copilot. Safe under HITL assumptions.
+          </p>
+        </div>
+        <div class="taxonomy__cell">
+          <p class="taxonomy__label">HOTL</p>
+          <p class="taxonomy__sub">Humans <em>Outside</em> The Loop</p>
+          <p class="taxonomy__body">
+            The human supervises at boundaries, owns artifacts, sets
+            direction. The runtime iterates and produces verdicts the
+            human reads. Composer, not co-driver.
+          </p>
+        </div>
+        <div class="taxonomy__cell taxonomy__cell--focus">
+          <p class="taxonomy__label">HOOTL</p>
+          <p class="taxonomy__sub">Humans <em>Out Of</em> The Loop</p>
+          <p class="taxonomy__body">
+            The human is one or many layers removed. The agent infers
+            intent from context and executes. Most autonomous; most
+            legally exposed. <strong>This is what the eight principles
+            address.</strong>
+          </p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: var(--space-4);">
+        <a href="/taxonomy/" class="cta cta--ghost">Full taxonomy →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- The eight principles ============================================= -->
+  <section id="principles" class="section section--paper">
+    <div class="container">
+      <h2 style="text-align: center;">The eight principles</h2>
+      <p style="text-align: center; color: var(--ink-muted); max-width: 60ch; margin: 0 auto var(--space-8) auto;">
+        Substrate properties of safe HOOTL systems. Numbered for stable
+        citation. Each is a property of the system, not a procedural rule.
+      </p>
+      <div class="card-grid">
+        {principles.map((p) => (
+          <article class="principle" id={p.id.toLowerCase()}>
+            <p class="principle__number">{p.id}</p>
+            <h3 class="principle__title">{p.title}</h3>
+            <div class="principle__body">
+              <p>{p.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p style="text-align: center; margin-top: var(--space-12);">
+        <a href="/principles/" class="cta cta--primary">Read each in full →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- What this is / is not =========================================== -->
+  <section class="section">
+    <div class="prose">
+      <h2>What this is, and is not</h2>
+      <p><strong>It is</strong> a concepts document. Policy authors,
+        vendors, auditors, and operators may cite, adapt, or extend
+        these principles in their own work. The intended use is
+        <em>citation</em>: a policy author writing an actual rule
+        should be able to write <em>"per HOOTL-3 (Override Channel)"</em>
+        and have a stable, well-defined property in mind.</p>
+      <p><strong>It is not</strong> a regulation, a standard, or a
+        legal instrument. It does not bind any party. It does not
+        settle the agency-law question — it treats AI systems as
+        <em>tools</em> rather than legal persons, but operates inside
+        that position rather than legislating it. It does not pick a
+        single liability framework. The principles describe properties
+        of safe systems; jurisdictions remain free to wrap them with
+        strict product liability, negligence-based service liability,
+        operator-responsibility frameworks, or hybrids appropriate to
+        local doctrine.</p>
+      <p>This document is designed to <strong>port</strong>. The
+        principles are substrate-properties — technical and
+        operational characteristics of the systems themselves — and
+        as such are jurisdiction-neutral. Local legal infrastructure
+        varies; the properties of a safe agent system do not.</p>
+    </div>
+  </section>
+
+  <!-- Cite ============================================================ -->
+  <section id="cite" class="section section--paper">
+    <div class="container">
+      <h2 style="text-align: center;">Cite</h2>
+      <p style="text-align: center; max-width: 60ch; margin: 0 auto var(--space-6) auto;">
+        The principles are numbered <code>HOOTL-1</code> through
+        <code>HOOTL-8</code> so citations remain stable even when the
+        surrounding prose is rewritten.
+      </p>
+      <div style="max-width: 50rem; margin: 0 auto;">
+        <p style="margin-bottom: var(--space-2); color: var(--ink-muted); font-size: 0.9rem;">
+          <strong>Suggested citation:</strong>
+        </p>
+        <div class="cite-block">
+          Winegar, T. (2026). <em>Principles of HOOTL Safety</em>
+          (v1.0). Eight substrate-property principles for safe
+          autonomous-agent operation. hootl.org.
+        </div>
+        <p style="margin-bottom: var(--space-2); color: var(--ink-muted); font-size: 0.9rem;">
+          <strong>In-text:</strong>
+        </p>
+        <div class="cite-block">
+          "per HOOTL-3 (Override Channel)" · "per Winegar 2026 §HOOTL-7"
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where this fits ================================================= -->
+  <section class="section">
+    <div class="prose">
+      <h2>Where this fits in the landscape</h2>
+      <p>HOOTL is the operator-side companion to the existing
+        frontier-lab frameworks. It builds on the same tradition —
+        the <a href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/" target="_blank" rel="noopener noreferrer">Belmont
+        Report</a> (1979) for shape; the <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST
+        AI RMF</a>, <a href="https://oecd.ai/en/ai-principles" target="_blank" rel="noopener noreferrer">OECD
+        AI Principles</a>, and <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">EU
+        AI Act</a> for vocabulary — and addresses what those
+        frameworks structurally cannot: the substrate properties of the
+        autonomous-agent runtime that wraps a model.</p>
+      <p>It is intentionally orthogonal to <a href="https://openai.com/index/frontier-safety-blueprint/" target="_blank" rel="noopener noreferrer">OpenAI's
+        Frontier Safety Blueprint</a> (June 2026), <a href="https://www.anthropic.com/responsible-scaling-policy" target="_blank" rel="noopener noreferrer">Anthropic's
+        Responsible Scaling Policy</a>, and Google DeepMind's
+        Frontier Safety Framework. Those describe what a lab should do
+        when training and releasing a model. HOOTL describes what an
+        autonomous-agent system should look like, regardless of which
+        lab's model is inside it. Both are necessary.</p>
+    </div>
+  </section>
+
+  <!-- Get involved ==================================================== -->
+  <section class="section section--dark">
+    <div class="container">
+      <h2 style="color: var(--cream);">Get involved</h2>
+      <div class="card-grid">
+        <div class="card" style="background: rgba(255,255,255,0.06); border-left-color: var(--amber);">
+          <h3 style="color: var(--amber);">Cite</h3>
+          <p style="color: var(--cream);">
+            Use the principles in your policy work. Stable numbering
+            makes citation simple. No permission required — see
+            <a href="/colophon/" style="color: var(--mid-teal); text-decoration: underline;">license</a>.
+          </p>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.06); border-left-color: var(--amber);">
+          <h3 style="color: var(--amber);">Adapt</h3>
+          <p style="color: var(--cream);">
+            Profile HOOTL for your sector. Healthcare, finance,
+            critical infrastructure each have specific operator-side
+            substrate requirements that HOOTL is shaped to accommodate.
+          </p>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.06); border-left-color: var(--amber);">
+          <h3 style="color: var(--amber);">Contribute</h3>
+          <p style="color: var(--cream);">
+            Comments, critiques, sector-specific extensions, and
+            illustrative scenarios welcome via
+            <a href="https://github.com/traviswinegar/hootl" style="color: var(--mid-teal); text-decoration: underline;" target="_blank" rel="noopener noreferrer">GitHub</a>
+            or <a href="mailto:travis@hootl.org" style="color: var(--mid-teal); text-decoration: underline;">email</a>.
+          </p>
+        </div>
+      </div>
+      <div class="cta-row" style="margin-top: var(--space-12); justify-content: center;">
+        <a href="/principles/" class="cta cta--amber">Read the full text →</a>
+        <a
+          href="https://github.com/traviswinegar/hootl"
+          class="cta cta--ghost"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

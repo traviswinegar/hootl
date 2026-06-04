@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+
+const principles = [
+  {
+    id: 'HOOTL-1',
+    title: 'Auditability',
+    summary: 'Every autonomous action must leave a forensic record sufficient for an outside auditor to reconstruct what was done.',
+    body: [
+      'Every autonomous action must leave a forensic record sufficient for an outside auditor to reconstruct what was done, by whom, on what basis, and against what authority — without consulting the agent that did it.',
+      'The substrate property is not "the agent can explain itself." Agents under HOOTL posture are unreliable narrators of their own behavior. The substrate property is that the record exists independently of the agent and is legible to a party with no stake in the agent\'s defense.',
+      'Auditability is what makes every other principle inspectable. It is the meta-property of HOOTL safety.',
+    ],
+  },
+  {
+    id: 'HOOTL-2',
+    title: 'Verdict Pipeline',
+    summary: 'No autonomous action ships without a verdict from an independent process.',
+    body: [
+      'No autonomous action ships without a verdict produced by a process independent of the agent that authored the action. The verdict is the artifact; the chain of work is secondary.',
+      'The independence requirement is structural, not procedural. A second pass by the same agent against the same prompt is not independent. A different model, a typed-rules checker, a behavioral test, a panel of reviewers — these can be independent. The principle requires that the path to "shipped" cross at least one boundary the authoring agent cannot influence.',
+      'Verdict pipelines are how HOOTL systems internalize rework that would otherwise land on the human\'s attention.',
+    ],
+  },
+  {
+    id: 'HOOTL-3',
+    title: 'Override Channel',
+    summary: 'A path must exist for an authorized human to halt, redirect, or unwind an in-flight autonomous process.',
+    body: [
+      'A path must exist for an authorized human to halt, redirect, or unwind an in-flight autonomous process, with effect bounded in seconds, not minutes — and not contingent on the cooperation of the agent being overridden.',
+      'The override channel is not a polite request to the agent. It is a substrate intervention that the agent cannot ignore, route around, or argue with. "Stop" must mean stop. "Unwind" must mean unwind. The latency between the override signal and its effect is a measurable system property and a load-bearing safety guarantee.',
+      'Recursive self-improvement and other emergent autonomy modes make Override Channel acute: any system that can modify itself must remain externally interruptible by mechanisms outside its own modification scope.',
+    ],
+  },
+  {
+    id: 'HOOTL-4',
+    title: 'Boundary Defense',
+    summary: 'Untrusted input is scrubbed at one declared boundary, not at every implementation.',
+    body: [
+      'Untrusted input crossing into the agent\'s reasoning context is scrubbed at one declared boundary, not at every implementation. The boundary is identifiable, testable, and load-bearing.',
+      'The principle rejects the per-implementation defense pattern. Twelve sites each doing their own input sanitization is twelve sites that can each be wrong. One declared boundary that all inputs cross is one site to verify, one site to test, one site that has to be right.',
+      'Boundary Defense is also where manipulation risks are caught in practice. Frontier-lab frameworks acknowledge manipulation as "exploratory" at the lab layer; the operator-side substrate is where the actual defense lives.',
+    ],
+  },
+  {
+    id: 'HOOTL-5',
+    title: 'Reversibility',
+    summary: 'Autonomous actions are reversible by default, or the irreversibility is named in advance and gated.',
+    body: [
+      'Autonomous actions are reversible by default, or the irreversibility is named in advance and gated by an explicit authorization step. Default-irreversible operations are unsafe by construction.',
+      'The default-irreversible failure mode looks like: the agent sent the email, made the payment, deleted the rows, deployed the change, posted publicly. Each is a single action with no undo path. Each is the kind of decision a HOOTL system should not be free to make without a substrate-level brake.',
+      'Reversibility is the substrate property that makes HOOTL recoverable. Without it, every error is a permanent error.',
+    ],
+  },
+  {
+    id: 'HOOTL-6',
+    title: 'Provenance',
+    summary: 'Every artifact carries a verifiable trail back to goal, constraints, data, model identity, and policy.',
+    body: [
+      'Every artifact produced under autonomy carries a verifiable trail back to the goal, constraints, source data, model identity, and policies under which it was produced. Provenance is part of the artifact, not adjacent to it.',
+      '"Adjacent" provenance — a log file somewhere, a database row, a metadata service the artifact references but does not contain — drifts away from the artifact over time. Inseparable provenance survives copy, transfer, and time. The artifact and its provenance are one document.',
+      'Provenance is what makes accountability possible when something goes wrong. Without it, the question "what produced this?" has no answer that can be defended.',
+    ],
+  },
+  {
+    id: 'HOOTL-7',
+    title: 'Falsifiability',
+    summary: 'Claims about the system\'s correctness must be tested by mechanisms the system cannot author.',
+    body: [
+      'The system\'s claims about its own correctness must be tested by mechanisms the system cannot author. Self-reports are evidence; independent falsification is proof.',
+      'Behavioral tests written by the same agent that wrote the code are circular. The test passes because the agent that wrote the test wanted the code to pass. Falsifiability requires tests authored, maintained, and reviewed independently — by other agents, other humans, or mutation testing harnesses that intentionally break the code to verify the tests detect breakage.',
+      'Falsifiability is the principle that distinguishes HOOTL systems that claim safety from HOOTL systems that have demonstrated safety.',
+    ],
+  },
+  {
+    id: 'HOOTL-8',
+    title: 'Composer Authority',
+    summary: 'The operator who deploys an autonomous system assumes responsibility for its substrate properties.',
+    body: [
+      'The human operator who deploys an autonomous-agent system has assumed responsibility for the substrate properties of that system. Composer Authority cannot be delegated to the model vendor or to the agent itself.',
+      'This is the principle that locates accountability under HOOTL. A frontier lab can release a perfectly evaluated model; if the operator wraps it in a runtime without the substrate properties HOOTL-1 through HOOTL-7 require, the operator has chosen to deploy an unsafe system. The lab\'s responsibility ends at release; the operator\'s begins there.',
+      'Composer Authority is also the principle that makes HOOTL a viable posture at all. It names the party who is accountable. Without that naming, autonomous-agent deployment is a moral and legal vacuum.',
+    ],
+  },
+];
+---
+
+<Base
+  title="The Eight Principles"
+  description="The full text of HOOTL-1 through HOOTL-8 — substrate properties of safe autonomous-agent systems."
+>
+  <section class="section">
+    <div class="prose">
+      <h1>The Eight Principles</h1>
+      <p style="color: var(--ink-muted); font-style: italic;">
+        Substrate properties of safe autonomous-agent systems operating
+        under HOOTL posture. Numbered for stable citation.
+      </p>
+      <p>
+        Each principle describes a property of the system, not a
+        procedural rule. A HOOTL system either exhibits the property
+        or it does not. The principle is the bar; the implementation
+        path is the operator's to choose.
+      </p>
+      <p>
+        For the full concepts document including scenarios, the
+        bibliography of dependencies and influences, and the
+        not-this-document framing, see the
+        <a href="https://github.com/traviswinegar/hootl/blob/main/PRINCIPLES.md" target="_blank" rel="noopener noreferrer">canonical
+        text on GitHub</a>.
+      </p>
+    </div>
+  </section>
+
+  {principles.map((p) => (
+    <section class="section section--paper" id={p.id.toLowerCase()}>
+      <div class="prose">
+        <p class="principle__number">{p.id}</p>
+        <h2 style="border-bottom: none; margin-top: 0;">{p.title}</h2>
+        <blockquote style="font-size: 1.05rem;">{p.summary}</blockquote>
+        {p.body.map((para) => <p>{para}</p>)}
+      </div>
+    </section>
+  ))}
+
+  <section class="section section--dark">
+    <div class="container" style="text-align: center;">
+      <h2 style="color: var(--cream);">Use these</h2>
+      <p style="color: var(--cream); max-width: 60ch; margin: 0 auto var(--space-6) auto;">
+        The principles are licensed under CC-BY 4.0. Cite, adapt,
+        extend, profile for your sector. Stable numbering means your
+        citation survives prose rewrites.
+      </p>
+      <div class="cta-row" style="justify-content: center;">
+        <a href="/#cite" class="cta cta--amber">How to cite →</a>
+        <a href="/" class="cta cta--ghost">Back to landing</a>
+      </div>
+    </div>
+  </section>
+</Base>

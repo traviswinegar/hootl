@@ -1,0 +1,41 @@
+---
+const { pathname } = Astro.url;
+
+const navLinks = [
+  { href: '/#frame', label: 'The frame' },
+  { href: '/#principles', label: 'Eight principles' },
+  { href: '/#cite', label: 'Cite' },
+  { href: '/principles/', label: 'Full text' },
+];
+
+const current = (href: string) =>
+  pathname === href || pathname === href.replace(/\/$/, '');
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand">
+      <span class="site-header__brand-dot" aria-hidden="true"></span>
+      HOOTL
+    </a>
+    <nav class="site-header__nav" aria-label="Primary">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            aria-current={current(link.href) ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="https://github.com/traviswinegar/hootl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
+    </nav>
+  </div>
+</header>
