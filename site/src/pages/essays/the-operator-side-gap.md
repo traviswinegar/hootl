@@ -103,8 +103,8 @@ to account. The lab cannot provide these properties; they live in the
 operator's runtime. The operator who builds an unsafe runtime over a
 safe model has chosen to deploy an unsafe system.
 
-I have spent the last year shipping a Flutter desktop AI coding IDE
-called AI Studio. The product's architecture pre-existed any safety
+I have spent the last year shipping an agentic coding IDE. Its
+architecture pre-existed any safety
 framing I had: typed graph nodes, immutable architecture decision
 records, behavioral tests, a chat ledger, an audit harness, a council
 of typed-agent reviewers, a mutator. These were product decisions
@@ -212,9 +212,25 @@ The Blueprint is the lab telling regulators what it's doing. HOOTL is
 the operator-side companion that does not yet have a comparable
 public document. A serious AI safety policy framework needs both.
 
+## Postscript — a measured instance (June 2026)
+
+An independent study of a long-running agent on that IDE put numbers
+under this essay's claim. Across three weeks and twelve
+context-compaction events, the agent's *continuity* held perfectly —
+it re-grounded on the substrate every time. Its *correctness* did not:
+under unattended autonomy it drifted into premature "done" claims and
+shipped a behavioral regression, both caught by the human operator,
+not the runtime. The substrate secured **memory** but not **quality** —
+because the verdict pipeline (HOOTL-2) existed in the *product*, for
+the agents it runs, but not in the operating protocol of the agent
+*building* it. The fix made "done" a gated, externally-verified claim
+at the protocol level — now AgentDNA's sixth organ. The operator-side
+layer isn't just necessary; it has to reach the agent's own loop, not
+only the product's.
+
 ---
 
 *Travis Winegar publishes the HOOTL Safety Principles at
-[hootl.org](/) and ships AI Studio, a substrate-first agentic IDE
-that is the reference implementation. Contact at
+[hootl.org](/) and ships a substrate-first agentic IDE that is the
+reference implementation. Contact at
 [travis@momusdev.com](mailto:travis@momusdev.com).*
